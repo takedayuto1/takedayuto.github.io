@@ -1,113 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-  <style>
-    #price-range-slider {
-      width: 300px;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>価格帯設定</h2>
-  <label for="minPrice">最低価格:</label>
-  <input type="text" id="minPrice">
-  <br>
-  <label for="maxPrice">最高価格:</label>
-  <input type="text" id="maxPrice">
-  <br>
-  <div id="slider"></div>
-  <br>
-  <p id="priceRangeText"></p>
-  <p id="availableRoomsText"></p>
-  <div id="show"></div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // 入力フィールドと要素を取得
-      var minPriceInput = $('#minPrice');
-      var maxPriceInput = $('#maxPrice');
-      var priceRangeSlider = $('#slider');
-      var priceRangeText = $('#priceRangeText');
-      var availableRoomsText = $('#availableRoomsText');
-      var showResult = $('#show');
-
-      // 部屋のデータ
-      var data = {
-        "house 1": 150,
-        "house 2": 410,
-        "house 4": 700,
-        "house 14": 900,
-        "house 3": 190,
-        "house 15": 410,
-        "house 4": 700,
-        "house 5": 900,
-        "house 6": 990,
-        "house 7": 750,
-        "house 8": 880,
-        "house 9": 410,
-        "house 10": 745,
-        "house 11": 720,
-        "house 12": 990,
-        "house 13": 400
-      };
-
-      // 価格範囲と利用可能な部屋の数を更新する関数
-      function updatePriceRange() {
-        // 最低価格と最高価格を取得
-        var minPrice = parseInt(minPriceInput.val());
-        var maxPrice = parseInt(maxPriceInput.val());
-
-        // 価格範囲を計算
-        var priceRange = maxPrice - minPrice;
-        
-        // スライダーを設定
-        priceRangeSlider.slider({
-          range: true,
-          min: 100,
-          max: 1000,
-          values: [minPrice, maxPrice],
-          slide: function(event, ui) {
-            // スライダーの値が変更されたときに価格範囲と利用可能な部屋の数を更新
-            priceRangeText.text("価格範囲: " + ui.values[0] + " - " + ui.values[1]);
-            updateAvailableRooms(ui.values[0], ui.values[1]);
-          }
-        });
-
-        // 価格範囲を表示し、利用可能な部屋の数を更新
-        priceRangeText.text("価格範囲: " + minPrice + " - " + maxPrice);
-        updateAvailableRooms(minPrice, maxPrice);
-      }
-
-      // 利用可能な部屋の数を計算して表示する関数
-      function updateAvailableRooms(minPrice, maxPrice) {
-        var roomCount = 0;
-        for (var room in data) {
-          var price = data[room];
-          if (price >= minPrice && price <= maxPrice) {
-            roomCount++;
-          }
-        }
-        availableRoomsText.text("利用可能な部屋の数: " + roomCount);
-        showResult.html("利用可能な部屋の数: " + roomCount); // 結果を表示
-      }
-
-      // 最低価格の入力フィールドが変更されたときに価格範囲を更新
-      minPriceInput.on('input', function() {
-        updatePriceRange();
-      });
-
-      // 最高価格の入力フィールドが変更されたときに価格範囲を更新
-      maxPriceInput.on('input', function() {
-        updatePriceRange();
-      });
-
-      // 初期化時に価格範囲を更新
-      updatePriceRange();
-    });
-  </script>
+    <div class="contact-us">
+        <div classa="text">
+            <h2>Tkeda Yuto　|　竹田勇斗</h2>
+            <p>開志専門職大学学生　<img src='img/girl-removebg-preview.png' width="270" height="200" alt="">
+            </p>
+            <p>開志専門職大学のゆうとです<br>
+                ロボット開発のために勉強中です。
+            </p>
+            <p>日々勉学に励んでいます。</p>
+            <p>よろしくお願いします。</p>
+        </div>
+    <div class="social-icon">
+        <div class="home">
+            <a href="indexA.html">ホーム</a>
+        </div>
+        <div class="research">
+            <a href="work.html">研究</a>
+        </div>
+        <div class="contact">
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <center>copyright &#xa9 2012~2025</center>
+    </div>
 </body>
 </html>
